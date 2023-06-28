@@ -2,7 +2,7 @@ const Joi = require('@hapi/joi')
 
 const validateRecipe = (req, res, next)=>{
     const schema = Joi.object({
-        recipeName: Joi.string().required(),
+        recipeName: Joi.string().pattern(/^[a-zA-Z\s]+$/).required(),
         recipeDescription: Joi.string().required(),
         recipeNumber: Joi.string().pattern(/^[0-9]{5}$/).required(),
         recipeIngredients: Joi.string().required(),
